@@ -1,0 +1,777 @@
+/* Poppins
+    *{
+        font-family:'Poppins',sans-serif
+    }
+*/
+
+@font-face {
+    font-family: Cairo;
+    src: url('../fonts/Cairo-Regular.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    color: var(--text-color);
+    /* font-family: 'Poppins', sans-serif */
+    font-family: 'Cairo', sans-serif;
+}
+
+:root {
+    --loader-text-color: #f6e9fe;
+    --loader-dot-color: #a51ff6;
+    --loader-bg-color: #100319;
+    --bg-color: #141922;
+    --second-bg-color: #323946;
+    --text-color: #fff;
+    --main-color: rgb(0, 187, 255);
+    /* --main-color: #ffbd23 */
+    --main-color: #02eeff;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    line-height: 1.5;
+}
+
+body {
+    background: var(--bg-color);
+}
+
+section {
+    min-height: 100dvh;
+    padding: 10rem 9% 2rem;
+    z-index: 1;
+}
+
+.hidden {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .6s ease-in-out;
+}
+
+.visable {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .6s ease-in-out;
+}
+
+/********** { Loading Screen } **********/
+.loader-container {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    background-color: var(--bg-color);
+    display: grid;
+    place-content: center;
+    transition: opacity .4s ease-in-out, visabilty .4s ease-in-out;
+}
+
+svg {
+    width: 20rem;
+    font-weight: 700;
+}
+
+svg text {
+    font-size: 10rem;
+    stroke-width: 2;
+    letter-spacing: 2px;
+}
+
+svg text.text-body {
+    stroke: var(--text-color);
+    animation: 2s infinite alternate animate-strock;
+}
+
+/************ { NavBar Screen } ************/
+
+.header {
+    position: fixed;
+    display: flex;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.2rem 9%;
+    background-color: var(--bg-color);
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: .4s;
+
+}
+
+.header.sticky {
+    border-bottom: .1rem solid rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    font-size: 2rem;
+    width: 12rem;
+    cursor: default;
+    color: var(--main-color);
+    stroke: var(--text-color);
+    animation: 4s infinite alternate animateLogo;
+    transition: all .4s ease-in-out
+}
+
+/* .logo svg {
+    font-size: 2.5rem;
+    width: 12rem;
+    cursor: default;
+}
+ */
+.header .navbar a {
+    font-size: 1.7rem;
+    margin-left: 3rem;
+    color: white;
+    transition: 0.6s;
+}
+
+.navbar a:hover,
+.navbar a.active {
+    color: var(--main-color);
+}
+
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--text-color);
+    display: none;
+}
+
+/************ { Home Screen } ************/
+
+.home {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.home-content h3 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.home-content h3:nth-child(2) {
+    margin-bottom: 2rem;
+}
+
+span {
+    color: var(--main-color);
+}
+
+.home-content h1 {
+    font-size: 3.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.home-content p {
+    font-size: 1.6rem;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.social-media a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    border-radius: 50%;
+    font-size: 2rem;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.5s ease;
+}
+
+.social-media a:hover {
+    background-color: var(--main-color);
+    color: var(--second-bg-color);
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.home-img img {
+    perspective: 1000px;
+    width: 34vw;
+    transition: all .5s;
+    animation: floatImage 5s ease-in-out infinite;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--main-color);
+    border: 0.2rem solid var(--main-color);
+    border-radius: 4rem;
+    font-size: 1.6rem;
+    box-shadow: 0 0 1rem var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.5s ease;
+    color: white;
+    letter-spacing: 0.1rem;
+    font-weight: 600;
+    padding: 1.2rem 2.8rem;
+}
+
+.btn:hover {
+    box-shadow: none;
+}
+
+/************ { Parlex Screen } ************/
+.parallax {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-image: url('../images/portfolio/1.jpeg');
+    background-size: cover;
+    min-height: 100dvh;
+    perspective: 400px;
+    height: 100dvh;
+}
+
+.parallax .title {
+    position: absolute;
+    font-size: 5em;
+    color: white;
+    font-style: oblique;
+    z-index: -5;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.parallax img {
+    position: absolute;
+    top: 40px;
+    pointer-events: none;
+    width: 80%;
+    /* filter: invert(); */
+}
+
+.parallax #name {
+    transform-origin: top;
+    transform: rotateX(110deg);
+    transition: .5s;
+}
+
+/********* { About Screen } *********/
+
+.about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: var(--second-bg-color);
+}
+
+.about .about-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background: var(--second-bg-color);
+}
+
+.about-img img {
+    width: 34vw;
+}
+
+.heading {
+    text-align: center;
+    font-size: 4.5rem;
+}
+
+.about-content h2 {
+    text-align: left;
+    line-height: 1.2;
+}
+
+.about-content h3 {
+    font-size: 2.6rem;
+}
+
+.about-content p {
+    font-size: 1.6rem;
+    margin: 2rem 0 3rem;
+}
+
+.about-scroller .skills {
+    display: flex;
+    width: 80%;
+    margin: auto;
+    margin-top: 3rem;
+    padding: 1rem;
+    border-radius: 2rem;
+    border: .1rem solid var(--main-color);
+    overflow: hidden;
+    justify-content: srart;
+    font-size: 2rem;
+    scroll-behavior: smooth;
+    /* overflow: hidden; */
+}
+
+.about-scroller .skills span {
+    margin-left: 5px;
+    width: 120px;
+    font-size: 1.4rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    max-lines: 1;
+    white-space: nowrap;
+    text-align: center;
+    scroll-snap-type: none;
+    overflow-anchor: none;
+    box-shadow: 0 0 .4rem var(--main-color);
+    background-color: var(--bg-color);
+    border: .5px solid var(--main-color);
+    transition: .5s;
+}
+
+.about-scroller .skills.left span {
+    /* animation: scrolling linear 5s alternate-reverse infinite; */
+}
+
+.about-scroller .skills.right span {
+    animation: scrolling linear 5s alternate infinite;
+}
+
+.about-scroller .skills span.title {
+    font-weight: 900;
+    background-color: transparent;
+    border: .5px solid var(--main-color);
+}
+
+.about-scroller .skills span:hover {
+    background-color: transparent;
+    border: .5px solid var(--main-color);
+}
+
+/********* { Services Screen } *********/
+
+.services {
+    margin-bottom: 5rem;
+}
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.services-container .services-box {
+    flex: 1 1 30rem;
+    background-color: var(--second-bg-color);
+    padding: 3rem 2rem 4rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: .2rem solid var(--bg-color);
+    transition: .5s ease;
+}
+
+.services-container .services-box:hover {
+    border-color: var(--main-color);
+    transform: scale(1.02);
+}
+
+.services-box i {
+    font-size: 7rem;
+    color: var(--main-color);
+}
+
+.services-box h3 {
+    font-size: 2.6rem;
+}
+
+.services-box p {
+    font-size: 1.6rem;
+    margin: 1rem 0 3rem;
+}
+
+.services-box .btn {
+    margin-bottom: 0rem;
+}
+
+/********* { Portfolio Screen } *********/
+.potfolio {
+    background: var(--second-bg-color);
+}
+
+.potfolio h2 {
+    margin-bottom: 4rem;
+}
+
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    gap: 2.5rem;
+}
+
+.portfolio-container .portfolio-box {
+    position: relative;
+    border-radius: 2rem;
+    box-shadow: 0 0 1rem var(--bg-color);
+    display: flex;
+    overflow: hidden;
+}
+
+.portfolio-container .portfolio-box img {
+    width: 100%;
+    transition: .5s ease;
+}
+
+.portfolio-box:hover img {
+    transform: scale(1.1);
+}
+
+.portfolio-box:hover .portfolio-layer {
+    transform: translateY(0);
+}
+
+.portfolio-box .portfolio-layer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, .1), var(--main-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    padding: 0 2rem;
+    transform: translateY(100%);
+    transition: 0.5s ease;
+}
+
+.portfolio-layer h4 {
+    font-size: 2rem;
+}
+
+.portfolio-layer p {
+    font-size: 1.6rem;
+    margin: .3rem 0 1rem;
+}
+
+.portfolio-layer a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 5rem;
+    height: 5rem;
+    background: var(--text-color);
+    border-radius: 50%;
+}
+
+.portfolio-layer a i {
+    font-size: 2rem;
+    color: var(--second-bg-color);
+}
+
+/********* { Contact Screen } *********/
+.contact h2 {
+    margin-top: 3rem;
+}
+
+.contact form {
+    max-width: 70rem;
+    margin: 1rem auto;
+    text-align: center;
+    margin-bottom: 3rem;
+
+}
+
+
+.contact form .input-box {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.contact form .input-box input,
+.contact form textarea {
+    width: 100%;
+    padding: 1.5rem;
+    font-size: 1.6rem;
+    color: var(--text-color);
+    background: var(--second-bg-color);
+    border-radius: .8rem;
+    margin: .7rem 0;
+}
+
+.contact form .input-box input {
+    width: 49%;
+}
+
+.contact form textarea {
+    resize: none;
+}
+
+.contact form .btn {
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+/********* { Contact Screen } *********/
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 2rem 9%;
+    background: var(--second-bg-color);
+}
+
+.footer-text p {
+    font-size: 1.6rem;
+}
+
+.footer-iconTop a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: .8rem;
+    background: var(--main-color);
+    border-radius: .8rem;
+    transition: .5s ease;
+}
+
+.footer-iconTop a:hover {
+    box-shadow: 0 0 1rem var(--main-color);
+}
+
+.footer-iconTop a i {
+    font-size: 2.4rem;
+    color: var(--second-bg-color);
+}
+
+/********* { BreackPoints  } *********/
+@media(max-width:1200px) {
+    html {
+        font-size: 55%;
+    }
+}
+
+@media(max-width:991px) {
+    .header {
+        padding: 2rem 3%;
+    }
+
+    section {
+        padding: 10rem 3% 2rem;
+    }
+
+    .services {
+        padding-bottom: 7rem;
+    }
+
+    .portfolio {
+        padding-bottom: 7rem;
+    }
+
+    .about .skills {
+        width: 90%;
+    }
+
+    .contact {
+        min-height: auto;
+    }
+
+    .footer {
+        padding: 2rem 3%;
+    }
+}
+
+@media(max-width:768px) {
+    #menu-icon {
+        display: block;
+        cursor: pointer;
+    }
+
+    .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: none;
+        width: 100%;
+        padding: 1rem 3%;
+        background-color: var(--bg-color);
+        border-top: .1rem solid rgba(0, 0, 0, 0.2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    .navbar.active {
+        display: block;
+    }
+
+    .navbar a {
+        display: block;
+        font-size: 2rem;
+        margin: 3rem 0;
+    }
+
+    .home {
+        flex-direction: column;
+    }
+
+    .home-content h3 {
+        font-size: 2.6rem;
+    }
+
+    .home-content h1 {
+        font-size: 5rem;
+    }
+
+    .home-img img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .about .skills {
+        width: 80%;
+    }
+
+    .about .about-container {
+        flex-direction: column-reverse;
+    }
+
+    .about img {
+        width: 70vw;
+        margin-top: 4rem;
+    }
+
+    .services h2 {
+        margin-bottom: 3rem;
+    }
+
+    .portfolio h2 {
+        margin-bottom: 3rem;
+    }
+
+    .portfolio-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+@media(max-width:617px) {
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:450px) {
+    html {
+        font-size: 50%;
+    }
+
+    .contact form .input-box input {
+        width: 100%;
+    }
+
+}
+
+@media(max-width:365px) {
+
+    .home-img img {
+        width: 90vw;
+    }
+
+    .about img {
+        width: 90vw;
+    }
+
+    .footer {
+        flex-direction: column-reverse;
+    }
+
+    .footer p {
+        text-align: center;
+        margin-top: 2rem;
+    }
+}
+
+@media(max-width:1200px) {}
+
+/********* { Animation Key Frame } *********/
+
+@keyframes animate-strock {
+    0% {
+        fill: transparent;
+        stroke: var(--loader-text-color);
+        stroke-width: 3;
+        stroke-dashoffset: 25%;
+        stroke-dasharray: 0% 32%;
+    }
+
+    50% {
+        fill: transparent;
+        stroke: var(--loader-text-color);
+        stroke-width: 3;
+    }
+
+    80%,
+    100% {
+        fill: var(--loader-text-color);
+        stroke: transparent;
+        stroke-width: 3;
+        stroke-dashoffset: -25%;
+        stroke-dasharray: 32% 0%;
+    }
+}
+
+@keyframes floatImage {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-2.4rem);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes animateLogo {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes scrolling {
+    to {
+        transform: translate(calc(-200% - 0.5rem));
+    }
+}
+
+@keyframes bg-shift {
+    from {
+        background-color: red;
+    }
+
+    to {
+        background-color: blue;
+    }
+}
