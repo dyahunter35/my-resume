@@ -2,6 +2,10 @@
 
 Welcome to my personal portfolio! This website showcases my skills, projects, and experience as a [ Backend Developer, Software Engineer, Database Administrator ].
 
+## Preview
+
+![Portfolio Screenshot](./images/portfolio/2.jpeg)
+
 ## Features
 
 - Overview of my professional background.
