@@ -403,6 +403,29 @@ span {
     margin-bottom: 0rem;
 }
 
+.services-container .logos{
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: center;
+    gap: 5rem;
+}
+.logos img{
+    width: 120px;
+    height: 120px !important;
+    padding: 14px;
+    filter: grayscale(1);
+    transition:  filter ease-in 0.5s;
+    background-color: var(--text-color);
+    border-radius: 50%;
+
+
+}
+
+.logos img:hover{
+    filter: grayscale(0);
+}
+
 /********* { Portfolio Screen } *********/
 .potfolio {
     background: var(--second-bg-color);
@@ -664,12 +687,20 @@ span {
     .portfolio-container {
         grid-template-columns: repeat(2, 1fr);
     }
+    .services-container .logos{
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2rem;
+    }
 
 }
 
 @media(max-width:617px) {
     .portfolio-container {
         grid-template-columns: 1fr;
+    }
+    .services-container .logos{
+        grid-template-columns: repeat(2, 1fr);
+        gap: 5rem;
     }
 }
 
